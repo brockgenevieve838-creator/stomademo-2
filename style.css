@@ -52,6 +52,78 @@ a { text-decoration: none; color: inherit; }
 
 .text-accent { color: var(--accent-teal); }
 
+/* ── Premium Button Styles ── */
+.btn-solid {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2.2rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 50px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background-color: var(--accent-teal);
+  color: #fff;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  border: none;
+  font-family: 'Outfit', sans-serif;
+  box-shadow: 0 10px 25px rgba(13, 148, 136, 0.15);
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+}
+.btn-solid:hover {
+  background-color: var(--accent-teal-dark);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(13, 148, 136, 0.25);
+}
+.btn-solid:active {
+  transform: translateY(0);
+}
+
+/* Button Variants */
+.navbar .btn-solid {
+  padding: 0.6rem 1.5rem;
+  font-size: 0.8rem;
+}
+
+.price-drawer-head .btn-solid {
+  background-color: #fff;
+  color: var(--text-dark);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.price-drawer-head .btn-solid:hover {
+  background-color: #f1f5f9;
+  color: var(--text-dark);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.contact-form .btn-solid {
+  background-color: #fff;
+  color: var(--text-dark);
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+.contact-form .btn-solid:hover {
+  background-color: #f1f5f9;
+  color: var(--text-dark);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+.mobile-cta .btn-solid {
+  background-color: var(--text-dark);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.mobile-cta .btn-solid:hover {
+  background-color: #1e293b;
+  color: #fff;
+}
+
+
 /* ── Container ── */
 .container {
   width: 100%;
@@ -71,6 +143,13 @@ a { text-decoration: none; color: inherit; }
   color: var(--text-dark);
   border-bottom: 1px solid transparent;
   transition: all 0.4s ease;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .navbar.scrolled {
@@ -324,6 +403,40 @@ a { text-decoration: none; color: inherit; }
   border-top: 1px solid rgba(255,255,255,0.1);
 }
 
+.price-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+#openPricesBtn {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  box-shadow: none;
+}
+#openPricesBtn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+.price-actions a.btn-solid {
+  background-color: #fff;
+  color: var(--text-dark);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+.price-actions a.btn-solid:hover {
+  background-color: #f1f5f9;
+  color: var(--text-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+
 /* ── Before / After Slider ── */
 .ba-section {
   padding: var(--spacing-xl) 0;
@@ -556,6 +669,19 @@ a { text-decoration: none; color: inherit; }
   left: 0;
   pointer-events: none;
 }
+
+.footer-bottom {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  color: #64748b;
+  font-size: 0.8rem;
+  position: relative;
+  z-index: 10;
+}
+
 
 .footer-grid {
   display: grid;

@@ -99,48 +99,52 @@ titles.forEach(title => {
 
 // 3D Card Tilt Effect
 const tiltCards = document.querySelectorAll('.service-card, .tm-card');
-tiltCards.forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left; // x position within the element
-    const y = e.clientY - rect.top; // y position within the element
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = ((y - centerY) / centerY) * -10; // Max 10 deg
-    const rotateY = ((x - centerX) / centerX) * 10;
+if (window.matchMedia('(hover: hover)').matches) {
+  tiltCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left; // x position within the element
+      const y = e.clientY - rect.top; // y position within the element
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -10; // Max 10 deg
+      const rotateY = ((x - centerX) / centerX) * 10;
+      
+      gsap.to(card, {
+        rotateX: rotateX,
+        rotateY: rotateY,
+        duration: 0.5,
+        ease: 'power2.out',
+        transformPerspective: 1000
+      });
+    });
     
-    gsap.to(card, {
-      rotateX: rotateX,
-      rotateY: rotateY,
-      duration: 0.5,
-      ease: 'power2.out',
-      transformPerspective: 1000
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, {
+        rotateX: 0,
+        rotateY: 0,
+        duration: 0.8,
+        ease: 'elastic.out(1, 0.3)'
+      });
     });
   });
-  
-  card.addEventListener('mouseleave', () => {
-    gsap.to(card, {
-      rotateX: 0,
-      rotateY: 0,
-      duration: 0.8,
-      ease: 'elastic.out(1, 0.3)'
-    });
-  });
-});
+}
 
 // Magnetic Hover Buttons
 const magneticButtons = document.querySelectorAll('.btn-solid');
-magneticButtons.forEach(btn => {
-  btn.addEventListener('mousemove', (e) => {
-    const rect = btn.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-    gsap.to(btn, { x: x * 0.3, y: y * 0.3, duration: 0.4, ease: 'power2.out' });
+if (window.matchMedia('(hover: hover)').matches) {
+  magneticButtons.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      gsap.to(btn, { x: x * 0.3, y: y * 0.3, duration: 0.4, ease: 'power2.out' });
+    });
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, { x: 0, y: 0, duration: 0.4, ease: 'elastic.out(1, 0.3)' });
+    });
   });
-  btn.addEventListener('mouseleave', () => {
-    gsap.to(btn, { x: 0, y: 0, duration: 0.4, ease: 'elastic.out(1, 0.3)' });
-  });
-});
+}
 
 // Global Parallax Effect
 gsap.utils.toArray('.parallax-bg').forEach((bg) => {
