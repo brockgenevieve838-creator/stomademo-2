@@ -79,7 +79,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .logo {
-  font-family: 'Outfit';
+  font-family: 'Outfit', sans-serif;
   font-size: 1.6rem;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -413,7 +413,7 @@ a { text-decoration: none; color: inherit; }
 
 .pi-num {
   font-size: clamp(6rem, 15vw, 15rem);
-  font-family: 'Outfit';
+  font-family: 'Outfit', sans-serif;
   font-weight: 900;
   color: rgba(13, 148, 136, 0.15);
   line-height: 0.8;
@@ -586,7 +586,7 @@ a { text-decoration: none; color: inherit; }
   backdrop-filter: blur(10px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
-.trust-chip strong { display: block; color: var(--accent-teal); font-size: 28px; letter-spacing: 0; font-family: 'Outfit'; }
+.trust-chip strong { display: block; color: var(--accent-teal); font-size: 28px; letter-spacing: 0; font-family: 'Outfit', sans-serif; }
 .trust-chip span { display: block; margin-top: 8px; color: var(--text-light); font-size: 13px; line-height: 1.4; }
 
 /* Hero Visual Additions */
@@ -717,7 +717,7 @@ a { text-decoration: none; color: inherit; }
   background: var(--bg-main);
   display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
 }
-.story-note strong { display: block; font-size: 1.5rem; line-height: 1.2; font-family: 'Outfit'; color: var(--text-dark); }
+.story-note strong { display: block; font-size: 1.5rem; line-height: 1.2; font-family: 'Outfit', sans-serif; color: var(--text-dark); }
 .story-note p { margin-top: 1rem; color: var(--text-light); line-height: 1.6; }
 .story-note .mark {
   width: 90px; height: 90px;
