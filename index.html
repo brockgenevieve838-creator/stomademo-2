@@ -16,9 +16,22 @@
           <a href="#process">Процесс</a>
           <a href="#specialists">Команда</a>
         </div>
-        <a href="#contacts" class="btn-solid" style="background:var(--accent-teal); color:#fff; padding: 0.6rem 1.5rem; border:none; text-shadow:none;">Записаться</a>
+        <a href="#contacts" class="btn-solid hidden-mobile" style="background:var(--accent-teal); color:#fff; padding: 0.6rem 1.5rem; border:none; text-shadow:none;">Записаться</a>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </nav>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay">
+      <a href="#services" class="mobile-link">Услуги</a>
+      <a href="#process" class="mobile-link">Процесс</a>
+      <a href="#specialists" class="mobile-link">Команда</a>
+      <a href="#contacts" class="btn-solid mobile-link" style="margin-top: 1rem;">Записаться</a>
+    </div>
 
     <!-- HERO -->
     <section class="hero" id="top" style="align-items:flex-end; padding-bottom:4rem;">

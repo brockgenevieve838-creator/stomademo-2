@@ -37,6 +37,34 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// Mobile Menu Logic
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileOverlay = document.getElementById('mobileOverlay');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+
+if (mobileMenuBtn && mobileOverlay) {
+  mobileMenuBtn.addEventListener('click', () => {
+    const isOpen = mobileMenuBtn.classList.contains('open');
+    if (isOpen) {
+      mobileMenuBtn.classList.remove('open');
+      mobileOverlay.classList.remove('open');
+      lenis.start();
+    } else {
+      mobileMenuBtn.classList.add('open');
+      mobileOverlay.classList.add('open');
+      lenis.stop();
+    }
+  });
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenuBtn.classList.remove('open');
+      mobileOverlay.classList.remove('open');
+      lenis.start();
+    });
+  });
+}
+
 // Global smooth reveal for all major elements
 gsap.utils.toArray('.price-list, .process-sticky').forEach((el, i) => {
   gsap.from(el, {
@@ -348,18 +376,21 @@ if (slider && afterImage && handle) {
     updateSlider(e.clientX);
   });
   
-  // Touch support
+  // Mobile Touch Support
   slider.addEventListener('touchstart', (e) => {
     isDragging = true;
     updateSlider(e.touches[0].clientX);
-  });
+  }, {passive: true});
+  
   window.addEventListener('touchend', () => {
     isDragging = false;
   });
+  
   window.addEventListener('touchmove', (e) => {
     if (!isDragging) return;
     updateSlider(e.touches[0].clientX);
-  });
+  }, {passive: true});
+  
 }
 
 // Price Drawer Toggle Logic
