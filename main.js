@@ -65,37 +65,39 @@ if (mobileMenuBtn && mobileOverlay) {
   });
 }
 
-// Global smooth reveal for all major elements
-gsap.utils.toArray('.price-list, .process-sticky').forEach((el, i) => {
-  gsap.from(el, {
-    scrollTrigger: {
-      trigger: el,
-      start: 'top 85%',
-    },
-    y: 50,
-    opacity: 0,
-    duration: 1.2,
-    ease: 'power4.out'
+// Global smooth reveal for all major elements (desktop only)
+if (window.innerWidth > 768) {
+  gsap.utils.toArray('.price-list, .process-sticky').forEach((el, i) => {
+    gsap.from(el, {
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 85%',
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1.2,
+      ease: 'power4.out'
+    });
   });
-});
 
-// Kinetic Text Reveal (SplitType)
-const titles = document.querySelectorAll('.text-title');
-titles.forEach(title => {
-  const splitTitle = new SplitType(title, { types: 'words, chars' });
-  gsap.from(splitTitle.chars, {
-    scrollTrigger: {
-      trigger: title,
-      start: 'top 85%',
-    },
-    opacity: 0,
-    y: 50,
-    rotateX: -90,
-    stagger: 0.02,
-    duration: 0.8,
-    ease: 'back.out(1.7)'
+  // Kinetic Text Reveal (SplitType)
+  const titles = document.querySelectorAll('.text-title');
+  titles.forEach(title => {
+    const splitTitle = new SplitType(title, { types: 'words, chars' });
+    gsap.from(splitTitle.chars, {
+      scrollTrigger: {
+        trigger: title,
+        start: 'top 85%',
+      },
+      opacity: 0,
+      y: 50,
+      rotateX: -90,
+      stagger: 0.02,
+      duration: 0.8,
+      ease: 'back.out(1.7)'
+    });
   });
-});
+}
 
 // 3D Card Tilt Effect
 const tiltCards = document.querySelectorAll('.service-card, .tm-card');
@@ -160,63 +162,65 @@ gsap.utils.toArray('.parallax-bg').forEach((bg) => {
   });
 });
 
-// Results block reveal
-gsap.from('.ba-slider', {
-  scrollTrigger: {
-    trigger: '.results-layout',
-    start: 'top 80%',
-  },
-  y: 60,
-  opacity: 0,
-  duration: 1.2,
-  ease: 'power4.out'
-});
+// Results block reveal (desktop only)
+if (window.innerWidth > 768) {
+  gsap.from('.ba-slider', {
+    scrollTrigger: {
+      trigger: '.results-layout',
+      start: 'top 80%',
+    },
+    y: 60,
+    opacity: 0,
+    duration: 1.2,
+    ease: 'power4.out'
+  });
 
-gsap.from('.case-card', {
-  scrollTrigger: {
-    trigger: '.results-layout',
-    start: 'top 80%',
-  },
-  y: 60,
-  opacity: 0,
-  duration: 1.2,
-  delay: 0.1,
-  ease: 'power4.out'
-});
+  gsap.from('.case-card', {
+    scrollTrigger: {
+      trigger: '.results-layout',
+      start: 'top 80%',
+    },
+    y: 60,
+    opacity: 0,
+    duration: 1.2,
+    delay: 0.1,
+    ease: 'power4.out'
+  });
 
-// Initial Hero Load
-const tl = gsap.timeline();
+  // Initial Hero Load
+  const tl = gsap.timeline();
 
-tl.from('.hero-bg', {
-  scale: 1.1,
-  opacity: 0,
-  duration: 1.5,
-  ease: 'power3.out'
-})
-.from('.hero-headline', {
-  y: 50,
-  opacity: 0,
-  duration: 1,
-  ease: 'power3.out'
-}, "-=1")
-.from('.hero-sub', {
-  y: 20,
-  opacity: 0,
-  duration: 0.8,
-  ease: 'power3.out'
-}, "-=0.6")
-.from('.hero .btn-solid', {
-  y: 20,
-  opacity: 0,
-  duration: 0.6,
-  ease: 'power3.out'
-}, "-=0.5")
-.from('.hero-glass-card', {
-  x: 50,
-  opacity: 0,
-  duration: 1,
-  ease: 'back.out(1.5)'
-}, "-=0.8");
+  tl.from('.hero-bg', {
+    scale: 1.1,
+    opacity: 0,
+    duration: 1.5,
+    ease: 'power3.out'
+  })
+  .from('.hero-headline', {
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    ease: 'power3.out'
+  }, "-=1")
+  .from('.hero-sub', {
+    y: 20,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power3.out'
+  }, "-=0.6")
+  .from('.hero .btn-solid', {
+    y: 20,
+    opacity: 0,
+    duration: 0.6,
+    ease: 'power3.out'
+  }, "-=0.5")
+  .from('.hero-glass-card', {
+    x: 50,
+    opacity: 0,
+    duration: 1,
+    ease: 'back.out(1.5)'
+  }, "-=0.8");
+}
 
 // Marquee GSAP
 const marqueeTrack = document.getElementById('marquee-track');
@@ -248,103 +252,106 @@ if (marqueeTrack) {
   });
 }
 
-// Services Cards Reveal
-gsap.utils.toArray('.service-card').forEach((card, i) => {
-  gsap.from(card, {
-    scrollTrigger: {
-      trigger: '.services-bento-grid',
-      start: 'top 80%',
-    },
-    y: 50,
-    opacity: 0,
-    duration: 1.2,
-    delay: i * 0.15,
-    ease: 'power4.out'
+// Desktop-only ScrollTrigger animations
+if (window.innerWidth > 768) {
+  // Services Cards Reveal
+  gsap.utils.toArray('.service-card').forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: '.services-bento-grid',
+        start: 'top 80%',
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1.2,
+      delay: i * 0.15,
+      ease: 'power4.out'
+    });
   });
-});
 
-// Process Items Stagger Reveal
-gsap.utils.toArray('.process-item').forEach((item, i) => {
-  gsap.from(item, {
-    scrollTrigger: {
-      trigger: '.process-list',
-      start: 'top 80%',
-    },
-    y: 50,
-    opacity: 0,
-    duration: 1.2,
-    delay: i * 0.15,
-    ease: 'power4.out'
+  // Process Items Stagger Reveal
+  gsap.utils.toArray('.process-item').forEach((item, i) => {
+    gsap.from(item, {
+      scrollTrigger: {
+        trigger: '.process-list',
+        start: 'top 80%',
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1.2,
+      delay: i * 0.15,
+      ease: 'power4.out'
+    });
   });
-});
 
-// Testimonials Reveal
-gsap.utils.toArray('.t-card').forEach((card, i) => {
-  gsap.from(card, {
-    scrollTrigger: {
-      trigger: '.testimonials',
-      start: 'top 75%',
-    },
-    y: 60,
-    opacity: 0,
-    duration: 1.2,
-    delay: i * 0.2,
-    ease: 'power4.out'
+  // Testimonials Reveal
+  gsap.utils.toArray('.t-card').forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: '.testimonials',
+        start: 'top 75%',
+      },
+      y: 60,
+      opacity: 0,
+      duration: 1.2,
+      delay: i * 0.2,
+      ease: 'power4.out'
+    });
   });
-});
 
-// Team Cards Parallax/Reveal + Masking
-gsap.utils.toArray('.tm-card').forEach((card, i) => {
-  gsap.from(card, {
-    scrollTrigger: {
-      trigger: '.specialists',
-      start: 'top 80%',
-    },
-    y: 80,
-    opacity: 0,
-    duration: 1.2,
-    delay: i * 0.15,
-    ease: 'power4.out'
-  });
-  
-  const img = card.querySelector('.tm-img');
-  if(img) {
-    gsap.from(img, {
+  // Team Cards Parallax/Reveal + Masking
+  gsap.utils.toArray('.tm-card').forEach((card, i) => {
+    gsap.from(card, {
       scrollTrigger: {
         trigger: '.specialists',
         start: 'top 80%',
       },
-      clipPath: 'inset(100% 0 0 0)',
-      duration: 1.5,
+      y: 80,
+      opacity: 0,
+      duration: 1.2,
       delay: i * 0.15,
-      ease: 'power3.inOut'
+      ease: 'power4.out'
     });
-  }
-});
+    
+    const img = card.querySelector('.tm-img');
+    if(img) {
+      gsap.from(img, {
+        scrollTrigger: {
+          trigger: '.specialists',
+          start: 'top 80%',
+        },
+        clipPath: 'inset(100% 0 0 0)',
+        duration: 1.5,
+        delay: i * 0.15,
+        ease: 'power3.inOut'
+      });
+    }
+  });
 
-// Story Image Masking
-gsap.from('.story-main img, .story-side img', {
-  scrollTrigger: {
-    trigger: '.visual-story',
-    start: 'top 75%',
-  },
-  clipPath: 'inset(100% 0 0 0)',
-  duration: 1.5,
-  stagger: 0.2,
-  ease: 'power3.inOut'
-});
+  // Story Image Masking
+  gsap.from('.story-main img, .story-side img', {
+    scrollTrigger: {
+      trigger: '.visual-story',
+      start: 'top 75%',
+    },
+    clipPath: 'inset(100% 0 0 0)',
+    duration: 1.5,
+    stagger: 0.2,
+    ease: 'power3.inOut'
+  });
 
-// Footer Reveal
-gsap.from('.footer-huge', {
-  scrollTrigger: {
-    trigger: '.footer-mag',
-    start: 'top 80%',
-  },
-  y: 100,
-  opacity: 0,
-  duration: 1.5,
-  ease: 'power3.out'
-});
+  // Footer Reveal
+  gsap.from('.footer-huge', {
+    scrollTrigger: {
+      trigger: '.footer-mag',
+      start: 'top 80%',
+    },
+    y: 100,
+    opacity: 0,
+    duration: 1.5,
+    ease: 'power3.out'
+  });
+}
 
 // Before/After Slider Logic
 const slider = document.getElementById('ba-slider');
@@ -432,13 +439,15 @@ if (leadForm && formNote) {
   });
 }
 
-// Extra GSAP Reveals for newly added elements
-gsap.utils.toArray('.trust-chip, .story-main, .story-side, .case-card, .contact-info, .contact-form, .map').forEach(el => {
-  gsap.from(el, {
-    scrollTrigger: { trigger: el, start: "top 85%" },
-    y: 40,
-    opacity: 0,
-    duration: 0.8,
-    ease: "power3.out"
+// Extra GSAP Reveals for newly added elements (desktop only)
+if (window.innerWidth > 768) {
+  gsap.utils.toArray('.trust-chip, .story-main, .story-side, .case-card, .contact-info, .contact-form, .map').forEach(el => {
+    gsap.from(el, {
+      scrollTrigger: { trigger: el, start: "top 85%" },
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out"
+    });
   });
-});
+}
