@@ -906,40 +906,60 @@ a { text-decoration: none; color: inherit; }
   .mobile-menu-btn { display: flex; }
   
   /* Typography Scaling */
-  .text-huge { font-size: clamp(3rem, 12vw, 4rem); }
-  .text-title { font-size: clamp(2.2rem, 8vw, 3rem); }
-  .hero-huge { font-size: clamp(3.5rem, 14vw, 5rem); }
-  .pi-num { font-size: clamp(4rem, 15vw, 6rem); margin-bottom: -1rem; }
+  .text-huge { font-size: clamp(2.5rem, 10vw, 3.5rem); }
+  .text-title { font-size: clamp(2rem, 8vw, 2.5rem); }
+  .hero-huge { font-size: clamp(3rem, 12vw, 4rem); }
+  .pi-num { font-size: 4rem; margin-bottom: -1rem; }
   .footer-huge { font-size: clamp(2.5rem, 15vw, 4rem); top: -0.5rem; }
-  .marquee-text { font-size: 2.2rem; padding: 0 1rem; }
+  .marquee-text { font-size: 1.8rem; padding: 0 1rem; }
 
-  /* Hero Section tweaks */
-  .hero { min-height: 80vh; padding-top: 15vh; }
+  /* 1. Hero Section tweaks */
+  .hero { min-height: 60vh; padding-top: 15vh; }
   .hero-headline { gap: 0.5rem; }
-  .hero-glass-card { padding: 2rem; }
+  .hero-glass-card { padding: 1.5rem; margin-top: 1rem; }
 
-  /* Story Block */
+  /* 2. Story Block (Visual Story) */
   .story-grid { grid-template-columns: 1fr; gap: 1rem; }
-  .story-main { min-height: 400px; }
-  .story-caption { left: 1.5rem; right: 1.5rem; bottom: 1.5rem; flex-direction: column; align-items: flex-start; gap: 1rem; }
-  .story-caption h2 { font-size: 2rem; }
+  .story-main { min-height: auto; }
+  .story-main img { height: 250px; }
+  .story-side { min-height: 250px; }
+  .story-caption { left: 1.5rem; right: 1.5rem; bottom: 1.5rem; flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .story-caption h2 { font-size: 1.5rem; }
   .story-note { grid-template-columns: 1fr; padding: 1.5rem; gap: 1rem; }
-  .story-note .mark { width: 60px; height: 60px; font-size: 0.8rem; }
+  .story-note .mark { width: 50px; height: 50px; font-size: 0.7rem; }
   
+  /* 3. Services Bento */
+  .services-bento-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .bento-bg { height: 150px; }
+  .bento-content { padding: 1.5rem; }
+  .bento-content h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+
   /* Results Slider */
   .results-layout { grid-template-columns: 1fr; gap: 2rem; }
-  .case-card { padding: 2rem; }
+  .case-card { padding: 1.5rem; }
   .case-meta { grid-template-columns: 1fr; gap: 0.5rem; margin-bottom: 1.5rem; }
   .case-meta div { padding: 0.75rem; display: flex; justify-content: space-between; align-items: center; }
   .case-meta span { margin: 0; }
 
-  /* Services Bento */
-  .services-bento-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  /* 5. Process Item */
+  .process-item { min-height: auto; padding: 2rem 0; }
+  .pi-content { padding: 1.5rem; }
+
+  /* 6. Team & Reviews */
+  .tm-card { padding: 1.5rem; }
+  .t-card { padding: 1.5rem; }
   
-  /* Prices */
+  /* 4. Prices */
   .price-drawer { padding: 1.5rem; }
   .price-drawer-head { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+  .price-drawer-head h3 { font-size: 1.8rem; }
   .price-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .price-actions { display: flex; flex-direction: column; gap: 1rem; width: 100%; margin-top: 2rem; }
+  .price-actions button, .price-actions a { width: 100%; justify-content: center; text-align: center; }
+
+  /* 7. Footer Map */
+  .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+  .map-container { min-height: 350px; }
 }
 
 /* ── Mobile Menu Overlay Styles ── */
